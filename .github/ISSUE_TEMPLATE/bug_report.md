@@ -5,10 +5,6 @@ title: "[Bug]: "
 labels: "bug"
 projects: "GithubProjectTemplate/7"
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
   - type: input
     id: contact
     attributes:
