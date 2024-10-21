@@ -1,6 +1,6 @@
 ---
-name: Bug Report
-about: File a bug report.
+name: "Bug Report"
+about: "File a bug report."
 title: "[Bug]: "
 labels: "bug"
 projects: "GithubProjectTemplate/7"
@@ -13,4 +13,5 @@ body:
       placeholder: "ex. email@example.com"
     validations:
       required: false
+    
 ---
