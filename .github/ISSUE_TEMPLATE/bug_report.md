@@ -6,7 +6,7 @@ title: "BUG: "
 labels: [bug]
 projects: 
   - "GithubProjectTemplate/7"
----
+
 
 body:
   - type: checkboxes
@@ -65,7 +65,7 @@ body:
         Please paste the output of ``pd.show_versions()``
       value: >
         <details>
-
+---
 
         Replace this line with the output of pd.show_versions()
 
