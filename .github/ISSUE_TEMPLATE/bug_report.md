@@ -5,13 +5,13 @@ title: "[Bug]: "
 labels: "bug"
 projects: "GithubProjectTemplate/7"
 body:
-  - type: input
-    id: "contact"
-    attributes:
-      label: "Contact Details"
-      description: "How can we get in touch with you if we need more info?"
-      placeholder: "ex. email@example.com"
-    validations:
-      required: false
-    
+- type: input
+  id: prevalence
+  attributes:
+    label: Bug prevalence
+    description: "How often do you or others encounter this bug?"
+    placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
+  validations:
+    required: true
+
 ---
