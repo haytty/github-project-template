@@ -1,21 +1,71 @@
----
-name: "Bug Report"
-description: File a bug report.
-about: "File a bug report."
-title: "[Bug]: "
-labels: 
-  - "bug"
-assignees: ''
+name: Bug Report
+description: Report incorrect behavior in the pandas library
+title: "BUG: "
+labels: [bug]
 projects: 
   - "GithubProjectTemplate/7"
 body:
-- type: input
-  id: prevalence
-  attributes:
-    label: Bug prevalence
-    description: "How often do you or others encounter this bug?"
-    placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
-  validations:
-    required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pandas version checks
+      options:
+        - label: >
+            I have checked that this issue has not already been reported.
+          required: true
+        - label: >
+            I have confirmed this bug exists on the
+            [latest version](https://pandas.pydata.org/docs/whatsnew/index.html) of pandas.
+          required: true
+        - label: >
+            I have confirmed this bug exists on the
+            [main branch](https://pandas.pydata.org/docs/dev/getting_started/install.html#installing-the-development-version-of-pandas)
+            of pandas.
+  - type: textarea
+    id: example
+    attributes:
+      label: Reproducible Example
+      description: >
+        Please follow [this guide](https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) on how to
+        provide a minimal, copy-pastable example.
+      placeholder: >
+        import pandas as pd
 
----
+        df = pd.DataFrame(range(5))
+
+        ...
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Issue Description
+      description: >
+        Please provide a description of the issue shown in the reproducible example.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: >
+        Please describe or show a code example of the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: Installed Versions
+      description: >
+        Please paste the output of ``pd.show_versions()``
+      value: >
+        <details>
+
+
+        Replace this line with the output of pd.show_versions()
+
+
+        </details>
+    validations:
+      required: true
