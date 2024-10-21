@@ -6,11 +6,11 @@ labels: "bug"
 projects: "GithubProjectTemplate/7"
 body:
   - type: input
-    id: contact
+    id: "contact"
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: "Contact Details"
+      description: "How can we get in touch with you if we need more info?"
+      placeholder: "ex. email@example.com"
     validations:
       required: false
 ---
