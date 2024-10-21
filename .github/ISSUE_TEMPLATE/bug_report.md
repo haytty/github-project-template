@@ -1,12 +1,9 @@
 ---
 name: Bug Report
-description: File a bug report.
-about: Use this template for tracking new features.
+about: File a bug report.
 title: "[Bug]: "
-labels: ["bug", "triage"]
+labels: "bug"
 projects: "GithubProjectTemplate/7"
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
