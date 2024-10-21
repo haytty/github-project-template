@@ -20,6 +20,9 @@ jobs:
     name: Add author to issue
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - run: gh issue edit $ISSUE_NUMBER --add-assignee $CREATOR
         env:
           GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
