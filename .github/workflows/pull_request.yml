@@ -1,30 +1,31 @@
-# name: Add issue to project
-#  
-# on:
-#   pull_request:
-#     types:
-#       - opened
-#  
-# jobs:
-#   add_issue_to_project:
-#     name: Add issue to project
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: gh project item-add $PROJECT_ID --owner $PROJECT_OWNER --url $PULL_REQUEST
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
-#           PULL_REQUEST: ${{ github.event.pull_request.html_url }}
-#           PROJECT_OWNER: haytty
-#           PROJECT_ID: 7
-#   assign_yourself:
-#     name: Add author to issue
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v3
-# 
-#       - run: gh pr edit $PULL_REQUEST_NUMBER --add-assignee $CREATOR
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
-#           PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
-#           CREATOR: ${{ github.event.pull_request.user.login }}
+name: Add issue to project
+ 
+on:
+  workflow_dispatch:
+    # pull_request:
+    #   types:
+    #     - opened
+ 
+jobs:
+  add_issue_to_project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh project item-add $PROJECT_ID --owner $PROJECT_OWNER --url $PULL_REQUEST
+        env:
+          GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
+          PULL_REQUEST: ${{ github.event.pull_request.html_url }}
+          PROJECT_OWNER: haytty
+          PROJECT_ID: 7
+  assign_yourself:
+    name: Add author to issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - run: gh pr edit $PULL_REQUEST_NUMBER --add-assignee $CREATOR
+        env:
+          GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+          CREATOR: ${{ github.event.pull_request.user.login }}
