@@ -2,7 +2,7 @@ name: Add PR to project
 on:
   pull_request:
     types:
-      - ready_for_review
+      - opened
 jobs:
   track_pr:
     runs-on: ubuntu-latest
@@ -66,7 +66,6 @@ jobs:
       - name: Set fields
         env:
           GH_TOKEN: ${{ secrets.YOUR_TOKEN }}
-        # Sets the value of the `Status` field to `Todo`. Sets the value of the `Date posted` field.
         run: |
           gh api graphql -f query='
             mutation (
