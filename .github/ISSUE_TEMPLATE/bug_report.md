@@ -1,12 +1,7 @@
----
 name: Bug Report
-about: about
 description: Report incorrect behavior in the pandas library
 title: "BUG: "
-labels: [bug]
-projects: 
-  - "GithubProjectTemplate/7"
-
+labels: [Bug, Needs Triage]
 
 body:
   - type: checkboxes
@@ -65,7 +60,7 @@ body:
         Please paste the output of ``pd.show_versions()``
       value: >
         <details>
----
+
 
         Replace this line with the output of pd.show_versions()
 
