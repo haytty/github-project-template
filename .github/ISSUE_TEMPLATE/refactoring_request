@@ -1,0 +1,27 @@
+name: Refactoring Request
+description: Refactoring Request
+title: "REFACTOR: "
+labels: [refactoring]
+projects: 
+  - "GithubProjectTemplate/7"
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 概要
+    validations:
+      required: true
+  - type: textarea
+    id: feature
+    attributes:
+      label: どのような問題があるか
+    validations:
+      required: true
+  - type: textarea
+    id: feature
+    attributes:
+      label: どのような問題があるか
+    validations:
+      required: false
+
+
