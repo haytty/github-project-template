@@ -3,3 +3,16 @@ description: Performance Issue
 title: "PERFORMANCE: "
 labels: [performance]
 
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 概要
+    validations:
+      required: true
+  - type: textarea
+    id: feature
+    attributes:
+      label: 必要なパフォーマンスの目安
+    validations:
+      required: true
