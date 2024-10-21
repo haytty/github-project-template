@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: gh project item-add $PROJECT_ID --owner $PROJECT_OWNER --url $ISSUE
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
           ISSUE: ${{ github.event.issue.html_url }}
           PROJECT_OWNER: haytty
           PROJECT_ID: 7
