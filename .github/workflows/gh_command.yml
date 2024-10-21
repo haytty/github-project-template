@@ -1,0 +1,15 @@
+name: GitHub CLI
+
+on:
+  push:
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: gh repo list
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
