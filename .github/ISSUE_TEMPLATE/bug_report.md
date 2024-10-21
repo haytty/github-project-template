@@ -4,7 +4,7 @@ description: File a bug report.
 about: Use this template for tracking new features.
 title: "[Bug]: "
 labels: ["bug", "triage"]
-projects: "GithubProjectTemplate"
+projects: "GithubProjectTemplate/7"
 assignees:
   - octocat
 body:
