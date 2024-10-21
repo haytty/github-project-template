@@ -3,8 +3,11 @@ name: "Bug Report"
 description: File a bug report.
 about: "File a bug report."
 title: "[Bug]: "
-labels: "bug"
-projects: "GithubProjectTemplate/7"
+labels: 
+  - "bug"
+assignees: ''
+projects: 
+  - "GithubProjectTemplate/7"
 body:
 - type: input
   id: prevalence
