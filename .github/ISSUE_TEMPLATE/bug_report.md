@@ -1,4 +1,5 @@
 name: Bug Report
+about: about
 description: Report incorrect behavior in the pandas library
 title: "BUG: "
 labels: [bug]
