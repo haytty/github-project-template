@@ -16,3 +16,12 @@ jobs:
           ISSUE: ${{ github.event.issue.html_url }}
           PROJECT_OWNER: haytty
           PROJECT_ID: 7
+  assign_yourself:
+    name: Add author to issue
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh issue assign $ISSUE_NUMBER --assignee $CREATOR
+        env:
+          GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CREATOR: ${{ github.event.issue.user.login }}
