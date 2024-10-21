@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    command: sleep infinity
+    volumes:
+      - .:/projects
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    stdin_open: true
+    tty: true
+

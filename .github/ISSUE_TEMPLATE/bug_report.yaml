@@ -1,0 +1,35 @@
+name: Bug Report
+description: Report Bug
+title: "BUG: "
+labels: [bug]
+projects: 
+  - "7"
+body:
+  - type: input
+    id: error-url
+    attributes:
+      label: SentryURL
+      description: >
+        SentryのURLを入力してください。
+      placeholder: >
+        https://sentry.io/alerts/rules/details/xxxxxx
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: 原因
+    validations:
+      required: false
+  - type: textarea
+    id: scope
+    attributes:
+      label: 影響範囲
+    validations:
+      required: false
+  - type: textarea
+    id: howtofix
+    attributes:
+      label: 対応方針
+    validations:
+      required: false
