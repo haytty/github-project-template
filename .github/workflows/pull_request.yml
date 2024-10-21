@@ -10,10 +10,10 @@ jobs:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - run: gh project item-add $PROJECT_ID --owner $PROJECT_OWNER --url $ISSUE
+      - run: gh project item-add $PROJECT_ID --owner $PROJECT_OWNER --url $PULL_REQUEST
         env:
           GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
-          ISSUE: ${{ github.event.issue.html_url }}
+          PULL_REQUEST: ${{ github.event.pull_request.html_url }}
           PROJECT_OWNER: haytty
           PROJECT_ID: 7
   assign_yourself:
@@ -23,8 +23,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - run: gh issue edit $ISSUE_NUMBER --add-assignee $CREATOR
+      - run: gh pr edit $PULL_REQUEST_NUMBER --add-assignee $CREATOR
         env:
           GITHUB_TOKEN: ${{ secrets.HAYTTY_PAT }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          CREATOR: ${{ github.event.issue.user.login }}
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+          CREATOR: ${{ github.event.pull_request.user.login }}
