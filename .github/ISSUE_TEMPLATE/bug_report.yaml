@@ -15,3 +15,21 @@ body:
         https://sentry.io/alerts/rules/details/xxxxxx
     validations:
       required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: 原因
+    validations:
+      required: false
+  - type: textarea
+    id: scope
+    attributes:
+      label: 影響範囲
+    validations:
+      required: false
+  - type: textarea
+    id: howtofix
+    attributes:
+      label: 対応方針
+    validations:
+      required: false
