@@ -16,11 +16,11 @@ jobs:
           PROJECT_NUMBER: 7
         run: |
           gh api graphql -f query='
-            query($org: String!, $number: Int!) {
-              organization(login: $org){
+            query($login: String!, $number: Int!) {
+              user(login: $login) {
                 projectV2(number: $number) {
                   id
-                  fields(first:20) {
+                  fields(first: 20) {
                     nodes {
                       ... on ProjectV2Field {
                         id
@@ -38,16 +38,16 @@ jobs:
                   }
                 }
               }
-            }' -f org=$ORGANIZATION -F number=$PROJECT_NUMBER > project_data.json
+            }' -f login=haytty -F number=7 > project_data.json
 
-          echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
-          echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
-          echo 'STATUS_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
-          echo 'IN_REVIEW_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "In review") | .options[] | select(.name=="In review") |.id' project_data.json) >> $GITHUB_ENV
+          echo 'PROJECT_ID='$(jq '.data.user.projectV2.id' project_data.json) >> $GITHUB_ENV
+          echo 'DATE_FIELD_ID='$(jq '.data.user.projectV2.fields.nodes[] | select(.name== "Start date") | .id' project_data.json) >> $GITHUB_ENV
+          echo 'STATUS_FIELD_ID='$(jq '.data.user.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
+          echo 'IN_REVIEW_OPTION_ID='$(jq '.data.user.projectV2.fields.nodes[] | select(.name== "In review") | .options[] | select(.name=="In review") |.id' project_data.json) >> $GITHUB_ENV
 
       - name: Add PR to project
         env:
-          GH_TOKEN: ${{ secrets.YOUR_TOKEN }}
+          GH_TOKEN: ${{ secrets.HAYTTY_PAT }}
           PR_ID: ${{ github.event.pull_request.node_id }}
         run: |
           item_id="$( gh api graphql -f query='
@@ -67,7 +67,7 @@ jobs:
 
       - name: Set fields
         env:
-          GH_TOKEN: ${{ secrets.YOUR_TOKEN }}
+          GH_TOKEN: ${{ secrets.HAYTTY_PAT }}
         run: |
           gh api graphql -f query='
             mutation (
