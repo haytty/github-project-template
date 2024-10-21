@@ -2,8 +2,7 @@ name: Feature Request
 description: Feature Request
 title: "Feature: "
 labels: [enhancement]
-projects: 
-  - "GithubProjectTemplate/7"
+projects: "GithubProjectTemplate/7"
 body:
   - type: textarea
     id: description
