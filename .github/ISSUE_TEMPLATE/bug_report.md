@@ -1,3 +1,4 @@
+---
 name: Bug Report
 about: about
 description: Report incorrect behavior in the pandas library
@@ -5,6 +6,8 @@ title: "BUG: "
 labels: [bug]
 projects: 
   - "GithubProjectTemplate/7"
+---
+
 body:
   - type: checkboxes
     id: checks
