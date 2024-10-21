@@ -1,15 +1,18 @@
-name: GitHub CLI
-
+name: Add issue to project
+ 
 on:
-  push:
-
+  issues:
+    types:
+      - opened
+ 
 jobs:
-  create-pr:
-    runs-on: ubuntu-20.04
-
+  add_issue_to_project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: gh repo list
+      - run: gh project item-add $PROJECT_ID --owner $PROJECT_OWNER --url $ISSUE
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.html_url }}
+          PROJECT_OWNER: haytty
+          PROJECT_ID: 7
