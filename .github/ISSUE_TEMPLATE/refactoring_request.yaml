@@ -12,15 +12,15 @@ body:
     validations:
       required: true
   - type: textarea
-    id: feature
+    id: issue
     attributes:
       label: どのような問題があるか
     validations:
       required: true
   - type: textarea
-    id: feature
+    id: howtofix
     attributes:
-      label: どのような問題があるか
+      label: 対応方法
     validations:
       required: false
 
